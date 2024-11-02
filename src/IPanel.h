@@ -1,9 +1,9 @@
 #pragma once
-#include "NavCommon.h"
+#include "PanelCommon.h"
 
-class NavCanvas;
-class NavSidebar;
-class NavSidebarItem;
+//class NavCanvas;
+//class NavSidebar;
+//class NavSidebarItem;
 
 class IPanel : public wxScrolledWindow
 {
@@ -37,12 +37,12 @@ class IPanel : public wxScrolledWindow
     void TryMoveSidebar(wxTimerEvent& event, long span);
     void RefreshSidebarRect();
 
-    void ShowContextMenuAdd(wxMouseEvent& event);
-    void ShowContextMenuReplace(wxMouseEvent& event, SidebarItemType type);
-    void ConnectContextMenuReplaceItemSelected(wxMenuItem* item);
-    void OnContextMenuReplaceItemSelected(wxCommandEvent& event);
-    void OnContextMenuAddItemSelected(wxCommandEvent& event);
-    SidebarItemType ConvertTextToItemType(const wxString& text);
+    //void ShowContextMenuAdd(wxMouseEvent& event);
+    //void ShowContextMenuReplace(wxMouseEvent& event, SidebarItemType type);
+    //void ConnectContextMenuReplaceItemSelected(wxMenuItem* item);
+    //void OnContextMenuReplaceItemSelected(wxCommandEvent& event);
+    //void OnContextMenuAddItemSelected(wxCommandEvent& event);
+    //SidebarItemType ConvertTextToItemType(const wxString& text);
 
   private:
     wxTimer m_timer;

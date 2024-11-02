@@ -39,7 +39,7 @@
 #include <wx/file.h>
 #include <wx/aui/aui.h>
 
-#include "NavCommon.h"
+#include "PanelCommon.h"
 #include "IPanel.h"
 
 #include "ocpn_plugin.h"
