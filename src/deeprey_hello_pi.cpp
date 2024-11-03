@@ -295,14 +295,14 @@ bool deeprey_hello_pi::RenderGLOverlayMultiCanvas(wxGLContext *pcontext,
     //m_pidc->DrawRectangle(100, 100, 200, 300);
     int yp = 100;
     int pitch = 20;
-    //m_pidc->DrawText("Hello MFD World!", 120, yp);
+    m_pidc->DrawText("Hello MFD World!", 120, yp);
     yp += pitch;
     yp += pitch;
-    //m_pidc->DrawText("GL Overlay drawn graphics", 120, yp);
+    m_pidc->DrawText("GL Overlay drawn graphics", 120, yp);
     yp += pitch;
-    //m_pidc->DrawText("Rendered using OpenCPN core context", 120, yp);
+    m_pidc->DrawText("Rendered using OpenCPN core context", 120, yp);
     yp += pitch;
-    //m_pidc->DrawText("API method: RenderGLOverlayMultiCanvas(...)", 120, yp);
+    m_pidc->DrawText("API method: RenderGLOverlayMultiCanvas(...)", 120, yp);
 
 
     return true;

@@ -44,15 +44,19 @@ void IPanel::OnPaint(wxPaintEvent& event)
 #endif
 
     PrepareDC(dc);
-    //dc.SetBackground(*wxBLACK_BRUSH);
+    dc.SetBackground(*wxBLACK_BRUSH);
     dc.Clear();
 
     dc.SetBrush(*wxBLUE_BRUSH);
-    dc.DrawRectangle(10,10,200,50);
+    dc.DrawRectangle(10,10,200,150);
 
     dc.SetTextForeground(*wxWHITE);
     dc.DrawText("Hello, MFD world", 13, 20);
-    dc.DrawText("2 column docked pane", 15, 35);
+    dc.DrawText("2 column docked pane", 15, 40);
+    dc.DrawText("wxAUI managed", 15, 55);
+    dc.DrawText("Generic wxWindow API", 15, 70);
+    dc.DrawText("Generic wxDC rendering", 15, 85);
+
 
 }
 
