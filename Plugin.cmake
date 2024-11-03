@@ -50,6 +50,7 @@ set(SRC
   src/deeprey_hello_pi.h
   src/deeprey_hello_pi.cpp
   src/IPanel.cpp
+  src/FPanel.cpp
 )
 
 add_definitions("-DocpnUSE_GL")

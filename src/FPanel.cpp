@@ -1,14 +1,14 @@
-#include "IPanel.h"
+#include "FPanel.h"
 
 #include "wx/dcbuffer.h"
 #include "wx/dcgraph.h"
 #include "wx/graphics.h"
 
-wxBEGIN_EVENT_TABLE(IPanel, wxScrolledWindow)
-    EVT_PAINT(IPanel::OnPaint)
+wxBEGIN_EVENT_TABLE(FPanel, wxScrolledWindow)
+    EVT_PAINT(FPanel::OnPaint)
 wxEND_EVENT_TABLE()
 
-IPanel::IPanel(
+FPanel::FPanel(
     wxWindow* parent,
     wxWindowID id,
     const wxPoint& pos,
@@ -22,10 +22,10 @@ IPanel::IPanel(
 
 }
 
-IPanel::~IPanel() {}
+FPanel::~FPanel() {}
 
 
-void IPanel::OnPaint(wxPaintEvent& event)
+void FPanel::OnPaint(wxPaintEvent& event)
 {
     // Just use this class instead of wxPaintDC and make sure
     // wxWindow::SetBackgroundStyle() is called with wxBG_STYLE_PAINT somewhere in the class
@@ -44,15 +44,15 @@ void IPanel::OnPaint(wxPaintEvent& event)
 #endif
 
     PrepareDC(dc);
-    dc.SetBackground(*wxBLACK_BRUSH);
+    dc.SetBackground(*wxGREY_BRUSH);
     dc.Clear();
 
-    dc.SetBrush(*wxBLUE_BRUSH);
+    dc.SetBrush(*wxRED_BRUSH);
     dc.DrawRectangle(10,10,200,150);
 
     dc.SetTextForeground(*wxWHITE);
     dc.DrawText("Hello, MFD world", 13, 20);
-    dc.DrawText("2 column docked pane", 15, 40);
+    dc.DrawText("3 column floating pane", 15, 40);
     dc.DrawText("wxAUI managed", 15, 55);
     dc.DrawText("Generic wxWindow API", 15, 70);
     dc.DrawText("Generic wxDC rendering", 15, 85);

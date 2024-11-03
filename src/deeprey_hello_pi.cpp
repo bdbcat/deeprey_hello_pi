@@ -106,6 +106,7 @@ int deeprey_hello_pi::Init(void)
   m_pauimgr->Update();
 
   wxSize size = GetOCPNCanvasWindow()->GetClientSize();
+  wxPoint CanvasPos = GetOCPNCanvasWindow()->ClientToScreen( wxPoint(0,0));
   wxSize IPSize;
 
   IPSize.x = size.x * 2 / 12;
@@ -116,7 +117,7 @@ int deeprey_hello_pi::Init(void)
   wxAuiPaneInfo p = wxAuiPaneInfo()
                              .Name("InstrumentPanel")
                              .Caption("Caption")
-                             .CaptionVisible(true)
+                             .CaptionVisible(false)
                              .TopDockable(false)
                              .BottomDockable(false)
                              .LeftDockable(false)
@@ -133,9 +134,43 @@ int deeprey_hello_pi::Init(void)
        m_pauimgr->AddPane(m_ipanel, p);
        m_pauimgr->Update();
 
+      m_fpanel = NULL;
+#if 1
+       wxSize FPSize;
+       FPSize.x = size.x * 3 / 12;
+       FPSize.y = size.y;
+       wxPoint FPPos;
+       FPPos.x = size.x * 7 / 12;
+       FPPos.y = 0;
+       m_fpanel = new FPanel(GetOCPNCanvasWindow(), wxID_ANY,
+                             FPPos, FPSize);
+       FPPos += CanvasPos;
 
+       wxAuiPaneInfo pf = wxAuiPaneInfo()
+                             .Name("FloatingPanel")
+                             .Caption("FPanel Caption")
+                             .CaptionVisible(false)
+                              .CloseButton(false)
+                              .PaneBorder(false)
+                             .TopDockable(false)
+                             .BottomDockable(false)
+                             .LeftDockable(false)
+                             .RightDockable(false)
+                             .MinSize(FPSize)
+                             .BestSize(FPSize)
+                             .FloatingSize(FPSize)
+                             .FloatingPosition(FPPos)
+                             .Float()
+                              .Movable( false)
+                              .Fixed()
+                             .Show( true)
+                             .Gripper(false);
 
-      return (
+       m_pauimgr->AddPane(m_fpanel, pf);
+       m_pauimgr->Update();
+#endif
+
+       return (
            WANTS_CONFIG              |
            WANTS_LATE_INIT           |
            USES_AUI_MANAGER          |
@@ -150,19 +185,36 @@ bool deeprey_hello_pi::DeInit(void)
     m_ipanel->Close();
     m_ipanel->Destroy();
 
-      return true;
+    m_pauimgr->DetachPane(m_fpanel);
+    m_fpanel->Close();
+    m_fpanel->Destroy();
+
+    return true;
 }
 
 void deeprey_hello_pi::LateInit(void)
 {
+    m_ipanel->Show(true);
     wxAuiPaneInfo &pane = m_pauimgr->GetPane(m_ipanel);
     pane.Dock();
     pane.Show();
     m_pauimgr->Update();
-
-    m_ipanel->Show(true);
-    m_ipanel->Refresh();
+    //m_ipanel->Show(true);
+    m_ipanel->Refresh(true);
     m_ipanel->Update();
+
+    if (m_fpanel) {
+        m_fpanel->Show(true);
+        wxAuiPaneInfo &pane = m_pauimgr->GetPane(m_fpanel);
+        pane.CaptionVisible(false);
+        pane.Show();
+    }
+
+    if (m_fpanel) {
+        // m_fpanel->Show(true);
+        m_fpanel->Refresh(true);
+        m_fpanel->Update();
+    }
 }
 
 

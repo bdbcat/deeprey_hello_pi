@@ -41,6 +41,7 @@
 
 #include "PanelCommon.h"
 #include "IPanel.h"
+#include "FPanel.h"
 
 #include "ocpn_plugin.h"
 #include "config.h"
@@ -98,6 +99,7 @@ private:
       wxBitmap          m_panelBitmap;
 
       IPanel*        m_ipanel;
+      FPanel*        m_fpanel;
       piDC*          m_pidc;
       wxFont*        m_Font_DC;
 

@@ -2,17 +2,17 @@
 #include "PanelCommon.h"
 
 
-class IPanel : public wxScrolledWindow
+class FPanel : public wxScrolledWindow
 {
   public:
-    IPanel(
+    FPanel(
         wxWindow* parent,
         wxWindowID id,
         const wxPoint& pos = wxDefaultPosition,
         const wxSize& size = wxDefaultSize,
         long style = wxTAB_TRAVERSAL | wxNO_BORDER,
         const wxString& name = wxASCII_STR(wxPanelNameStr));
-    ~IPanel();
+    ~FPanel();
 
   private:
     void OnPaint(wxPaintEvent& event);
