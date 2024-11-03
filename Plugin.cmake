@@ -52,6 +52,7 @@ set(SRC
   src/IPanel.cpp
 )
 
+add_definitions("-DocpnUSE_GL")
 
 set(PKG_API_LIB api-17)  #  A directory in libs/ e. g., api-17 or api-16
 
