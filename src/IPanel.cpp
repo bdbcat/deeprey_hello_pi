@@ -48,6 +48,8 @@ void IPanel::OnPaint(wxPaintEvent& event)
     dc.Clear();
 
     dc.SetBrush(*wxBLUE_BRUSH);
+    dc.SetBrush(wxBrush(wxColour(0, 0, 150)));
+
     dc.DrawRectangle(10,10,200,150);
 
     dc.SetTextForeground(*wxWHITE);
@@ -56,6 +58,7 @@ void IPanel::OnPaint(wxPaintEvent& event)
     dc.DrawText("wxAUI managed", 15, 55);
     dc.DrawText("Generic wxWindow API", 15, 70);
     dc.DrawText("Generic wxDC rendering", 15, 85);
+    dc.DrawText("Class: IPanel", 15, 100);
 
 
 }
